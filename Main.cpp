@@ -28,6 +28,7 @@ void Func1(int nCount, float *pOut, float *pHigh, float *pLow, float *pIgnore)
     //将从pLow指向的地址开始的nCount个float元素复制到low向量中。
     std::vector<float> low(pLow, pLow + nCount);
     std::vector<float> out = Bi1(nCount, high, low);
+    //将pOut指向的内存区域清零
     memset(pOut, 0, nCount);
     for (int i = 0; i < nCount; i++)
     {
