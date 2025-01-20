@@ -23,7 +23,9 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserve
 //=============================================================================
 void Func1(int nCount, float *pOut, float *pHigh, float *pLow, float *pIgnore)
 {
+    //使用迭代器范围构造函数创建一个std::vector对象high，将从pHigh指向的地址开始的nCount个float元素复制到high向量中
     std::vector<float> high(pHigh, pHigh + nCount);
+    //将从pLow指向的地址开始的nCount个float元素复制到low向量中。
     std::vector<float> low(pLow, pLow + nCount);
     std::vector<float> out = Bi1(nCount, high, low);
     memset(pOut, 0, nCount);
